@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--mapper目录-->
+<mapper namespace="com.yanghaoyi.mybatis.dao.UserMapper">
+    <!-- 通过id 查找用户 -->
+    <select id="findUserByUserName" parameterType="String" resultType="com.yanghaoyi.mybatis.model.UserEntity">
+        select * from user_info where userName=#{userName}
+   </select>
+    <!-- 新增 -->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id"    parameterType="com.yanghaoyi.mybatis.model.UserEntity" >
+         INSERT INTO user_info VALUES (0,#{userName},#{password});
+    </insert>
+    <!-- 通过id 查找用户 -->
+    <select id="findUserById" parameterType="Integer" resultType="com.yanghaoyi.mybatis.model.UserEntity">
+        select * from user_info where "id"=#{id}
+   </select>
+</mapper>
